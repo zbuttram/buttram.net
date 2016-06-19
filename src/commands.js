@@ -51,7 +51,7 @@ The site is currently hosted with [surge.sh](https://surge.sh) who provide an am
 `;
   },
   motd: function() {
-    return "ZBUTTRAM | Welcome, User! Type 'HELP' for instructions or 'ABOUT' for info.";
+    return "ZACH BUTTRAM | Welcome, User! Type 'HELP' for instructions or 'ABOUT' for info.";
   },
   mobile: function() {
     var about = this.about();
