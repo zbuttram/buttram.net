@@ -18,6 +18,8 @@ export default {
 
       case 'MOTD': return this.motd();
 
+      case 'SOCIAL': return this.social();
+
       case 'ECHO': return args.reduce((p, c) => p+' '+c);
 
       default: return command+": command not found";

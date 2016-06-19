@@ -127,6 +127,7 @@ const Terminal = React.createClass({
       }
       if (line.source === 'USER') {
         prompt = '> ';
+        // prompt = '[user@buttram.net ~] $ ';
       }
       var text = line.text;
       if (line.source === 'SYSTEM') {
