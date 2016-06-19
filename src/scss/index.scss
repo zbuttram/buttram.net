@@ -1,0 +1,29 @@
+
+@import 'normalize.css';
+@import url('https://fonts.googleapis.com/css?family=VT323');
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  color: #00FF00;
+  font-family: 'VT323', monospace;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+#app {
+  height: 100%;
+  width: 100%;
+}
+
+.terminal-main {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  line-height: 150%;
+}
+
+.term-line {
+  margin-top: 5px;
+}

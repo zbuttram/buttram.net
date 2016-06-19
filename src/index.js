@@ -2,9 +2,11 @@
   BUTTRAM.NET ENTRY POINT
 */
 
+require('./scss/index.scss');
 require('babel-polyfill'); //required for IE support!
 
 import React from 'react';
 import { render } from 'react-dom';
+import Terminal from './Terminal';
 
-render(<div>Hello World!</div>, document.getElementById('app'));
+render(<Terminal/>, document.getElementById('app'));

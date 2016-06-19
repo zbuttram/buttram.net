@@ -4,7 +4,11 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --inline --colors --content-base dist/ --output-public-path=assets/",
+    "lint": "eslint src/**",
+    "build": "webpack -p --config webpack.config.build.js --progress",
+    "build-ci": "webpack -p --config webpack.config.build.js --display-error-details"
   },
   "repository": {
     "type": "git",
