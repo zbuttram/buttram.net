@@ -34,6 +34,7 @@ SOURCE - View the source code for this site on GitHub
 TWITTER - Open my Twitter profile
 GITHUB - Open my GitHub profile
 LINKEDIN - Open my LinkedIn profile
+SOCIAL - Displays links to all of my social profiles
 CLS - Clears the screen if you're feeling overwhelmed by text
 &nbsp;
 Other undocumented commands may be found.

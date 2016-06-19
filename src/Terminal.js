@@ -115,12 +115,6 @@ const Terminal = React.createClass({
       break;
     }
   },
-  // termRef: function (ref) {
-  //   this.term = ref;
-  //   if (ref) {
-  //     ref.focus();
-  //   }
-  // },
   render () {
     var termOutput = '';
     termOutput = this.state.lines.map(function renderLines(line, index) {
