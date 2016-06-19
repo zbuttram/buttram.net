@@ -21,7 +21,7 @@ const Cursor = React.createClass({
   render () {
     var style = {};
     if (this.state.blink === 0) {
-      style.color = 'black';
+      style.color = 'rgba(0, 0, 0, 0)';
     } else {
       style.color = false;
     }

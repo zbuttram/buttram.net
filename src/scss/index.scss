@@ -8,22 +8,38 @@ html, body {
   background-color: black;
   color: #00FF00;
   font-family: 'VT323', monospace;
-  padding-left: 10px;
-  padding-top: 10px;
+  overflow: auto;
 }
 
 #app {
   height: 100%;
   width: 100%;
+  // overflow: hidden;
+}
+
+$scanLineWidth: 1px;
+
+.scan-lines {
+  background-image: linear-gradient(transparent 0%, rgba(10, 16, 10, 0.6) 50%);
+  background-size: 1000px 6px;
 }
 
 .terminal-main {
-  width: 100%;
-  height: 100%;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 5%;
   outline: none;
-  line-height: 150%;
+  line-height: 120%;
+  font-size: 30px;
 }
 
 .term-line {
-  margin-top: 5px;
+  p {
+    // display: inline;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+  }
+  a {
+
+  }
 }

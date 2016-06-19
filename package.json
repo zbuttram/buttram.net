@@ -8,7 +8,8 @@
     "start": "webpack-dev-server --inline --colors --content-base dist/ --output-public-path=assets/",
     "lint": "eslint src/**",
     "build": "webpack -p --config webpack.config.build.js --progress",
-    "build-ci": "webpack -p --config webpack.config.build.js --display-error-details"
+    "build-ci": "webpack -p --config webpack.config.build.js --display-error-details",
+    "surge": "npm run build && surge ./dist"
   },
   "repository": {
     "type": "git",
@@ -23,8 +24,10 @@
   "dependencies": {
     "babel-polyfill": "^6.9.1",
     "classnames": "^2.2.5",
+    "jquery": "^3.0.0",
     "react": "^15.1.0",
-    "react-dom": "^15.1.0"
+    "react-dom": "^15.1.0",
+    "remarkable": "^1.6.2"
   },
   "devDependencies": {
     "babel": "^6.5.2",
