@@ -10,3 +10,7 @@ import { render } from 'react-dom';
 import Terminal from './Terminal';
 
 render(<Terminal/>, document.getElementById('app'));
+
+if (module.hot) {
+  module.hot.accept();
+}

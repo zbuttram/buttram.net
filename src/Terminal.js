@@ -2,8 +2,8 @@ import React, { PropTypes } from 'react';
 import Cursor from './components/Cursor';
 import commands from './commands';
 import $ from 'jquery';
-import Remarkable from 'remarkable';
 
+import Remarkable from 'remarkable';
 var md = new Remarkable({
   // html: true,
   linkify: true,
@@ -11,27 +11,56 @@ var md = new Remarkable({
   breaks: true
 });
 
+import isMobile from './utils/isMobile';
+
 const Terminal = React.createClass({
   getInitialState: function() {
-    return {
-      lines: [
-        {
-          text: "ZBUTTRAM | Welcome, User! Type 'HELP' for instructions or 'ABOUT' for info.",
-          source: 'SYSTEM'
-        },
-        {
-          text: "",
-          source: 'USER'
-        }
-      ],
-      currentLine: 1,
-      lastCommand: ''
-    };
+    if (isMobile.any) {
+      return {
+        lines: [
+          {
+            text: commands.motd(),
+            source: 'SYSTEM'
+          },
+          {
+            text: "MOBILE",
+            source: 'USER'
+          },
+          {
+            text: commands.mobile(),
+            source: 'SYSTEM'
+          },
+          {
+            text: "",
+            source: 'USER'
+          }
+        ],
+        currentLine: 3,
+        lastCommand: ''
+      };
+    } else {
+      return {
+        lines: [
+          {
+            text: commands.motd(),
+            source: 'SYSTEM'
+          },
+          {
+            text: "",
+            source: 'USER'
+          }
+        ],
+        currentLine: 1,
+        lastCommand: ''
+      };
+    }
   },
   componentDidMount: function() {
-    $('#app').on('click', function() {
-      this.term.focus();
-    }.bind(this));
+    $('.terminal-main').focus();
+    $('#app').click(function() {
+      // $('#fakeInput').trigger('click');
+      $('.terminal-main').focus();
+    });
   },
   onKeyPress: function(e) {
     var lines = this.state.lines;
@@ -45,13 +74,11 @@ const Terminal = React.createClass({
           var output = commands.processCommand(command);
           var linesForward = 1;
           if (!Array.isArray(output)) {
-            var text = md.render(output);
-            lines.push({text: `${text}`, source: 'SYSTEM'});
+            lines.push({text: `${output}`, source: 'SYSTEM'});
             linesForward = 1;
           } else {
             output.forEach(function(line) {
-              var text = md.render(line);
-              lines.push({text: `${text}`, source: 'SYSTEM'});
+              lines.push({text: `${line}`, source: 'SYSTEM'});
               linesForward += 1;
             });
           }
@@ -61,7 +88,7 @@ const Terminal = React.createClass({
         window.setTimeout(function() {
           window.location.hash = '#b';
           window.location.hash = '#';
-          this.term.focus();
+          $('.terminal-main').focus();
         }.bind(this), 200);
       break;
 
@@ -88,10 +115,12 @@ const Terminal = React.createClass({
       break;
     }
   },
-  termRef: function (ref) {
-    this.term = ref;
-    ref.focus();
-  },
+  // termRef: function (ref) {
+  //   this.term = ref;
+  //   if (ref) {
+  //     ref.focus();
+  //   }
+  // },
   render () {
     var termOutput = '';
     termOutput = this.state.lines.map(function renderLines(line, index) {
@@ -105,10 +134,15 @@ const Terminal = React.createClass({
       if (line.source === 'USER') {
         prompt = '> ';
       }
-      return <span key={index} className="term-line" id={id}>{prompt}<span dangerouslySetInnerHTML={{__html: line.text}}></span>{cursor}<br/></span>; // eslint-disable-line
+      var text = line.text;
+      if (line.source === 'SYSTEM') {
+        text = md.render(text);
+      }
+      return <span key={index} className="term-line" id={id}>{prompt}<span dangerouslySetInnerHTML={{__html: text}}></span>{cursor}<br/></span>; // eslint-disable-line
     }.bind(this));
     return (
-      <div className="terminal-main" ref={this.termRef} onKeyDown={this.onKeyDown} onKeyPress={this.onKeyPress} tabIndex="1">
+      <div className="terminal-main" onKeyDown={this.onKeyDown} onKeyPress={this.onKeyPress} tabIndex="1">
+        {/*<input id='fakeInput' type='text'/>*/}
         {termOutput}
       </div>
     );

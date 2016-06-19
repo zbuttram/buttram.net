@@ -33,6 +33,10 @@ $scanLineWidth: 1px;
   font-size: 30px;
 }
 
+#fakeInput {
+  display: none;
+}
+
 .term-line {
   p {
     // display: inline;

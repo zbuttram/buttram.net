@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --inline --colors --content-base dist/ --output-public-path=assets/",
+    "start": "webpack-dev-server --inline --hot --colors --content-base dist/ --output-public-path=assets/ --host 0.0.0.0",
     "lint": "eslint src/**",
     "build": "webpack -p --config webpack.config.build.js --progress",
     "build-ci": "webpack -p --config webpack.config.build.js --display-error-details",
