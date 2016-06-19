@@ -8,8 +8,9 @@ require('babel-polyfill'); //required for IE support!
 import React from 'react';
 import { render } from 'react-dom';
 import Terminal from './Terminal';
+import commands from './commands';
 
-render(<Terminal/>, document.getElementById('app'));
+render(<Terminal processCommand={commands.processCommand}/>, document.getElementById('app'));
 
 if (module.hot) {
   module.hot.accept();

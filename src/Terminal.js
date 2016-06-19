@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import Cursor from './components/Cursor';
-import commands from './commands';
 import $ from 'jquery';
 
 import Remarkable from 'remarkable';
@@ -63,6 +62,7 @@ const Terminal = React.createClass({
     });
   },
   onKeyPress: function(e) {
+    var processCommand = this.props.processCommand;
     var lines = this.state.lines;
     switch(e.charCode) {
       case 13: //enter key
@@ -71,7 +71,7 @@ const Terminal = React.createClass({
         if (command === 'CLS') {
           lines = [];
         } else if (command !== '') {
-          var output = commands.processCommand(command);
+          var output = processCommand(command);
           var linesForward = 1;
           if (!Array.isArray(output)) {
             lines.push({text: `${output}`, source: 'SYSTEM'});
