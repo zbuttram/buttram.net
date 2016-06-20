@@ -26,3 +26,5 @@ var html = `
 `;
 
 fs.writeFile(path.resolve(__dirname, 'dist/index.html'), html);
+
+console.log('Finished building index.html...');

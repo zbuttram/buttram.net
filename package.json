@@ -8,9 +8,9 @@
     "start": "npm run build-static && webpack-dev-server --inline --hot --colors --content-base dist/ --output-public-path=assets/ --host 0.0.0.0",
     "lint": "eslint src/**",
     "build": "npm run build-static && webpack -p --config webpack.config.build.js --progress",
-    "build-ci": "npm run build-static && webpack -p --config webpack.config.build.js --display-error-details",
+    "build-ci": "webpack -p --config webpack.config.build.js --display-error-details",
     "surge": "npm run build && surge ./dist",
-    "build-static": "./node_modules/.bin/babel-node --presets react,es2015 build-static.js"
+    "build-static": "babel-node --presets react,es2015 build-static.js"
   },
   "repository": {
     "type": "git",
