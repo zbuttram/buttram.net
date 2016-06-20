@@ -14,6 +14,7 @@ import isMobile from './utils/isMobile';
 
 const Terminal = React.createClass({
   getInitialState: function() {
+    var commands = this.props.commands;
     if (isMobile.any) {
       return {
         lines: [
@@ -27,6 +28,29 @@ const Terminal = React.createClass({
           },
           {
             text: commands.mobile(),
+            source: 'SYSTEM'
+          },
+          {
+            text: "",
+            source: 'USER'
+          }
+        ],
+        currentLine: 3,
+        lastCommand: ''
+      };
+    } else if (this.props.static) {
+      return {
+        lines: [
+          {
+            text: commands.motd(),
+            source: 'SYSTEM'
+          },
+          {
+            text: "STATIC",
+            source: 'USER'
+          },
+          {
+            text: commands.static(),
             source: 'SYSTEM'
           },
           {
@@ -62,7 +86,7 @@ const Terminal = React.createClass({
     });
   },
   onKeyPress: function(e) {
-    var processCommand = this.props.processCommand;
+    var commands = this.props.commands;
     var lines = this.state.lines;
     switch(e.charCode) {
       case 13: //enter key
@@ -71,7 +95,7 @@ const Terminal = React.createClass({
         if (command === 'CLS') {
           lines = [];
         } else if (command !== '') {
-          var output = processCommand(command);
+          var output = commands.processCommand(command);
           var linesForward = 1;
           if (!Array.isArray(output)) {
             lines.push({text: `${output}`, source: 'SYSTEM'});

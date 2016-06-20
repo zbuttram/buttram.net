@@ -5,11 +5,12 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --inline --hot --colors --content-base dist/ --output-public-path=assets/ --host 0.0.0.0",
+    "start": "npm run render && webpack-dev-server --inline --hot --colors --content-base dist/ --output-public-path=assets/ --host 0.0.0.0",
     "lint": "eslint src/**",
     "build": "webpack -p --config webpack.config.build.js --progress",
     "build-ci": "webpack -p --config webpack.config.build.js --display-error-details",
-    "surge": "npm run build && surge ./dist"
+    "surge": "npm run render && npm run build && surge ./dist",
+    "render": "babel-node --presets react,es2015 build.js"
   },
   "repository": {
     "type": "git",
@@ -31,10 +32,11 @@
   },
   "devDependencies": {
     "babel": "^6.5.2",
+    "babel-cli": "^6.10.1",
     "babel-core": "^6.9.1",
-    "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.5.0",
+    "babel-register": "^6.9.0",
     "css-loader": "^0.23.1",
     "eslint": "^2.13.0",
     "eslint-plugin-react": "^5.2.2",

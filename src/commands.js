@@ -77,6 +77,17 @@ GitHub: https://github.com/zbuttram
 LinkedIn: https://linkedin.com/in/zbuttram
 `;
   },
+  static: function() {
+    var about = this.about();
+    var social = this.social();
+    return `
+If this text is still present, the JavaScript on this page was unable to load. Please ensure your browser has JavaScript processing enabled. In the meantime, here's some info:
+&nbsp;
+${about}
+&nbsp;
+${social}
+`;
+  },
   openLink: function(url) {
     window.open(url, '_blank');
     return "Opening link: "+url;

@@ -1,24 +1,59 @@
-<!DOCTYPE html>
+
 <html>
-  <head>
-    <title>Zach Buttram</title>
-    <style>
-      body {
-        background-color: black;
-        background-image: linear-gradient(transparent 0%, rgba(10, 16, 10, 0.6) 50%);
-        background-size: 1000px 6px;
-        background-repeat: repeat;
-      }
-      #errtxt {
-        color: white;
-        font-family: monospace;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="app" class="scan-lines">
-      <p id="errtxt">If you are seeing this, the site is unable to load. Please ensure you are using a modern web browser with JavaScript processing turned on.</p>
-    </div>
-  </body>
-  <script src="/assets/app.js"></script>
+<head>
+<title>Zach Buttram</title>
+<style>@import url(normalize.css);
+@import url("https://fonts.googleapis.com/css?family=VT323");
+html, body {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  color: #00FF00;
+  font-family: 'VT323', monospace;
+  overflow: auto;
+  background-image: linear-gradient(transparent 0%, rgba(10, 16, 10, 0.6) 50%);
+  background-size: 1000px 6px;
+  background-repeat: repeat; }
+
+#app {
+  height: 100%;
+  width: 100%; }
+
+#errtxt {
+  color: white;
+  font-family: monospace; }
+
+.terminal-main {
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 5%;
+  outline: none;
+  line-height: 120%;
+  font-size: 30px; }
+
+#fakeInput {
+  display: none; }
+
+.term-line p {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0; }
+</style>
+</head>
+<body>
+<div id="app"><div class="terminal-main" tabindex="1" data-reactroot="" data-reactid="1" data-react-checksum="2067407746"><span class="term-line" id="false" data-reactid="2"><!-- react-text: 3 --><!-- /react-text --><span data-reactid="4"><p>ZACH BUTTRAM | Welcome, User! Type 'HELP' for instructions or 'ABOUT' for info.</p>
+</span><!-- react-text: 5 --><!-- /react-text --><br data-reactid="6"/></span><span class="term-line" id="false" data-reactid="7"><!-- react-text: 8 -->&gt; <!-- /react-text --><span data-reactid="9">STATIC</span><!-- react-text: 10 --><!-- /react-text --><br data-reactid="11"/></span><span class="term-line" id="false" data-reactid="12"><!-- react-text: 13 --><!-- /react-text --><span data-reactid="14"><p>If this text is still present, the JavaScript on this page was unable to load. Please ensure your browser has JavaScript processing enabled. In the meantime, here's some info:<br>
+ </p>
+<p>Hello! I'm Zach Buttram and this is my personal homepage. It's always a work in progress, I add new commands from time to time.<br>
+I am a full-stack web developer in Southern California.<br>
+You can visit my social sites by typing in the corresponding service's name, use the 'HELP' command for more info, or just type in 'SOCIAL' for a quick list.<br>
+ <br>
+This site is built with Facebook's React UI library. It is a static site (HTML/CSS/JavaScript) that may occasionally make HTTP requests to public APIs.<br>
+The site is currently hosted with <a href="https://surge.sh" target="_blank">surge.sh</a> who provide an amazing service. You can check out the code on GitHub: <a href="https://github.com/zbuttram/buttram.net" target="_blank">https://github.com/zbuttram/buttram.net</a></p>
+<p> </p>
+<p>Twitter: <a href="https://twitter.com/zbuttram" target="_blank">https://twitter.com/zbuttram</a><br>
+GitHub: <a href="https://github.com/zbuttram" target="_blank">https://github.com/zbuttram</a><br>
+LinkedIn: <a href="https://linkedin.com/in/zbuttram" target="_blank">https://linkedin.com/in/zbuttram</a></p>
+</span><!-- react-text: 15 --><!-- /react-text --><br data-reactid="16"/></span><span class="term-line" id="b" data-reactid="17"><!-- react-text: 18 -->&gt; <!-- /react-text --><span data-reactid="19"></span><span style="color:rgba(0, 0, 0, 0);" data-reactid="20">█</span><br data-reactid="21"/></span></div></div>
+<script src="/assets/app.js"></script>
+</body>
 </html>

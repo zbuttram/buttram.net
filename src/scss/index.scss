@@ -9,6 +9,8 @@ html, body {
   color: #00FF00;
   font-family: 'VT323', monospace;
   overflow: auto;
+  
+  // scan lines
   background-image: linear-gradient(transparent 0%, rgba(10, 16, 10, 0.6) 50%);
   background-size: 1000px 6px;
   background-repeat: repeat;
@@ -20,8 +22,9 @@ html, body {
   // overflow: hidden;
 }
 
-.scan-lines {
-
+#errtxt {
+  color: white;
+  font-family: monospace;
 }
 
 .terminal-main {
